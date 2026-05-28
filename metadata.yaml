@@ -1,8 +1,8 @@
 name: astrbot_plugin_xiangqi
 display_name: 坐标制中国象棋
 author: zxx624
-version: 1.1.0
-desc: 基于 negamax + alpha-beta 剪枝的 AstrBot 中国象棋对战插件
+version: 2.0.0
+desc: 集成 xqwlight 引擎与 LLM 人格台词的 AstrBot 中国象棋对战插件
 repo: https://github.com/zxx624/astrbot_plugin_xiangqi
 astrbot_version: ">=4.24,<5"
 support_platforms:

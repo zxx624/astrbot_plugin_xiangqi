@@ -43,8 +43,26 @@ async def choose_move_with_mode(
     provider=None,
     provider_model: str | None = None,
     top_k: int = 0,
+    xqwlight_jar_path: str | None = None,
+    xqwlight_depth: int = 8,
+    xqwlight_timeout_ms: int = 1500,
 ) -> tuple[Move | None, str]:
-    del mode, provider, provider_model, top_k
+    del provider, provider_model, top_k
+    if (mode or "builtin").lower() == "xqwlight":
+        try:
+            from .xqwlight_adapter import choose_move_xqwlight
+
+            return await choose_move_xqwlight(
+                board=board,
+                color=color,
+                jar_path=xqwlight_jar_path,
+                depth=xqwlight_depth,
+                timeout_ms=xqwlight_timeout_ms,
+            )
+        except Exception as exc:
+            move, reason = choose_move(board, color, depth)
+            fallback = f"xqwlight失败，已回退内置AI：{exc}"
+            return move, f"{fallback}；{reason}" if reason else fallback
     return choose_move(board, color, depth)
 
 
