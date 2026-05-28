@@ -1,0 +1,14 @@
+{
+  "ai_depth": {
+    "description": "机器人搜索层数",
+    "type": "int",
+    "default": 2,
+    "hint": "1 更快，2 更稳，3 会明显更慢。"
+  },
+  "image_scale": {
+    "description": "棋盘绘制缩放",
+    "type": "int",
+    "default": 1,
+    "hint": "数值越大图片越大，默认即可。"
+  }
+}
